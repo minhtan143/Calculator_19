@@ -16,23 +16,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtScreen = (TextView) findViewById(R.id.txtScreen);
-        btn0 = (Button) findViewById(R.id.btn0);
-        btn1 = (Button) findViewById(R.id.btn1);
-        btn2 = (Button) findViewById(R.id.btn2);
-        btn3 = (Button) findViewById(R.id.btn3);
-        btn4 = (Button) findViewById(R.id.btn4);
-        btn5 = (Button) findViewById(R.id.btn5);
-        btn6 = (Button) findViewById(R.id.btn6);
-        btn7 = (Button) findViewById(R.id.btn7);
-        btn8 = (Button) findViewById(R.id.btn8);
-        btn9 = (Button) findViewById(R.id.btn9);
-        btnAdd = (Button) findViewById(R.id.btnAdd);
-        btnSubtract = (Button) findViewById(R.id.btnSubtract);
-        btnMultiply = (Button) findViewById(R.id.btnMultiply);
-        btnDivide = (Button) findViewById(R.id.btnDivide);
-        btnDot = (Button) findViewById(R.id.btnDot);
-        btnDelete = (Button) findViewById(R.id.btnDelete);
-        btnEqual = (Button) findViewById(R.id.btnEqual);
+        txtScreen = findViewById(R.id.txtScreen);
+        btn0 = findViewById(R.id.btn0);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+        btn5 = findViewById(R.id.btn5);
+        btn6 = findViewById(R.id.btn6);
+        btn7 = findViewById(R.id.btn7);
+        btn8 = findViewById(R.id.btn8);
+        btn9 = findViewById(R.id.btn9);
+        btnAdd = findViewById(R.id.btnAdd);
+        btnSubtract = findViewById(R.id.btnSubtract);
+        btnMultiply = findViewById(R.id.btnMultiply);
+        btnDivide = findViewById(R.id.btnDivide);
+        btnDot = findViewById(R.id.btnDot);
+        btnDelete = findViewById(R.id.btnDelete);
+        btnEqual = findViewById(R.id.btnEqual);
     }
 }
