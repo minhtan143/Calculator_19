@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Group 19
+ Phạm Văn Minh Tân      17110364
+ Phạm Thái Dương        17110273
+ Lê Hồng Đạo            17110276
+ Time: 21:17 24/03/2020
+ -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,6 +15,7 @@
     tools:targetApi="o"
     tools:ignore="HardcodedText, NestedWeights, RtlHardcoded, ButtonStyle">
 
+    <!-- Row 1 - Show screen -->
     <TextView
         android:id="@+id/txtScreen"
         android:layout_width="match_parent"
@@ -21,12 +28,14 @@
         android:background="#555555"
         android:textColor="#FAFAFA"/>
 
+    <!-- Row 2 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <!-- Button number 7 -->
         <Button
             android:id="@+id/btn7"
             android:layout_width="match_parent"
@@ -38,6 +47,7 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+        <!-- Button number 8 -->
         <Button
             android:id="@+id/btn8"
             android:layout_width="match_parent"
@@ -49,6 +59,7 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+        <!-- Button number 9 -->
         <Button
             android:id="@+id/btn9"
             android:layout_width="match_parent"
@@ -60,6 +71,7 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+        <!-- Button divide -->
         <Button
             android:id="@+id/btnDivide"
             android:layout_width="match_parent"
@@ -72,12 +84,14 @@
             android:background="#FF8600"/>
     </LinearLayout>
 
+    <!-- Row 3 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <!-- Button number 4 -->
         <Button
             android:id="@+id/btn4"
             android:layout_width="match_parent"
@@ -89,6 +103,8 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+
+        <!-- Button number 5 -->
         <Button
             android:id="@+id/btn5"
             android:layout_width="match_parent"
@@ -100,6 +116,8 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+
+        <!-- Button number 6 -->
         <Button
             android:id="@+id/btn6"
             android:layout_width="match_parent"
@@ -111,6 +129,8 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+
+        <!-- Button multiply -->
         <Button
             android:id="@+id/btnMultiply"
             android:layout_width="match_parent"
@@ -123,12 +143,15 @@
             android:background="#FF8600"/>
     </LinearLayout>
 
+    <!-- Row 4 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+
+        <!-- Button number 1 -->
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
@@ -140,6 +163,8 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+
+        <!-- Button number 2 -->
         <Button
             android:id="@+id/btn2"
             android:layout_width="match_parent"
@@ -151,6 +176,8 @@
             android:autoSizeTextType="uniform"
             android:background="#E5E5E5"/>
 
+
+        <!-- Button number 3 -->
         <Button
             android:id="@+id/btn3"
             android:layout_width="match_parent"
@@ -162,6 +189,8 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+
+        <!-- Button subtract -->
         <Button
             android:id="@+id/btnSubtract"
             android:layout_width="match_parent"
@@ -174,12 +203,14 @@
             android:background="#FF8600"/>
     </LinearLayout>
 
+    <!-- Row 5 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <!-- Button number 0 -->
         <Button
             android:id="@+id/btn0"
             android:layout_width="0dp"
@@ -191,6 +222,7 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+        <!-- Button dot -->
         <Button
             android:id="@+id/btnDot"
             android:layout_width="0dp"
@@ -202,6 +234,7 @@
             android:layout_margin="1dp"
             android:background="#E5E5E5"/>
 
+        <!-- Button add -->
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="0dp"
@@ -214,12 +247,14 @@
             android:background="#FF8600"/>
     </LinearLayout>
 
+    <!-- Row 6 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <!-- Button delete -->
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="match_parent"
@@ -231,6 +266,7 @@
             android:layout_margin="1dp"
             android:background="#FF8600"/>
 
+        <!-- Button equal -->
         <Button
             android:id="@+id/btnEqual"
             android:layout_width="match_parent"
