@@ -9,9 +9,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
     android:background="#A0A0A0"
+    android:typeface="serif"
     tools:targetApi="o"
     tools:ignore="HardcodedText, NestedWeights, RtlHardcoded, ButtonStyle">
 
@@ -26,6 +26,7 @@
         android:text="0"
         android:layout_margin="1dp"
         android:background="#555555"
+        android:fontFamily="sans-serif-light"
         android:textColor="#FAFAFA"/>
 
     <!-- Row 2 -->
@@ -45,6 +46,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
         <!-- Button number 8 -->
@@ -57,6 +59,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
         <!-- Button number 9 -->
@@ -69,6 +72,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
         <!-- Button divide -->
@@ -77,10 +81,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="/"
+            android:text="÷"
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#FF8600"/>
     </LinearLayout>
 
@@ -101,6 +106,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
 
@@ -114,21 +120,21 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
-
 
         <!-- Button number 6 -->
         <Button
             android:id="@+id/btn6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="6"
-            android:gravity="center"
-            android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
-            android:background="#E5E5E5"/>
-
+            android:layout_weight="1"
+            android:autoSizeTextType="uniform"
+            android:background="#E5E5E5"
+            android:gravity="center"
+            android:fontFamily="sans-serif-light"
+            android:text="6" />
 
         <!-- Button multiply -->
         <Button
@@ -136,10 +142,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="*"
+            android:text="×"
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#FF8600"/>
     </LinearLayout>
 
@@ -161,6 +168,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
 
@@ -174,6 +182,7 @@
             android:gravity="center"
             android:layout_margin="1dp"
             android:autoSizeTextType="uniform"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
 
@@ -187,6 +196,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
 
@@ -200,6 +210,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#FF8600"/>
     </LinearLayout>
 
@@ -220,6 +231,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
         <!-- Button dot -->
@@ -232,6 +244,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#E5E5E5"/>
 
         <!-- Button add -->
@@ -244,6 +257,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#FF8600"/>
     </LinearLayout>
 
@@ -264,6 +278,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#FF8600"/>
 
         <!-- Button equal -->
@@ -276,6 +291,7 @@
             android:gravity="center"
             android:autoSizeTextType="uniform"
             android:layout_margin="1dp"
+            android:fontFamily="sans-serif-light"
             android:background="#FF8600"/>
     </LinearLayout>
 </LinearLayout>
