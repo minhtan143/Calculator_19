@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9,
             btnAdd, btnSubtract, btnMultiply, btnDivide, btnDot, btnDelete, btnEqual;
     String output, presentNum, tempOperation;
-    Boolean isOperation, isFirstCalculation;
+    Boolean isOperation, isFirstCalculation, isEqual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         isOperation = false;
         isFirstCalculation = true;
+        isEqual = false;
         tempOperation = "";
         output = "";
         presentNum = "";
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnEqual:
                 getResult();
+                isEqual = true;
                 break;
             case R.id.btnDelete:
                 reset();
@@ -141,8 +143,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void clickDot(){
         if (isOperation){
-            output += "0.";
-            presentNum = "0.";
+            output += tempOperation + ".";
+            presentNum = ".";
             isOperation = false;
         }
         else {
@@ -157,9 +159,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         output.trim();
         String[] elementMath = output.split(" ");
-        if (isFirstCalculation) {
+        if (isFirstCalculation || isEqual) {
             result = Float.parseFloat(elementMath[0]);
             isFirstCalculation = false;
+            isEqual = false;
         }
         else {
             Float num1 = Float.parseFloat(elementMath[0]);
