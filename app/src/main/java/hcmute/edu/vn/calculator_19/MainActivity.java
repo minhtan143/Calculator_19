@@ -154,6 +154,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 presentNum = ".";
                 isOperation = false;
             }
+            else if (isEqual){
+                isFirstCalculation = true;
+                isEqual = false;
+                output = ".";
+                presentNum = ".";
+            }
             else {
                 output += ".";
                 presentNum += ".";
