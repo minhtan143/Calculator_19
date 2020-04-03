@@ -127,6 +127,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             output += tempOperation + a;
             presentNum = a;
         }
+        else if (isEqual){
+            isFirstCalculation = true;
+            isEqual = false;
+            output = a;
+            presentNum = a;
+        }
         else {
             output += a;
             presentNum += a;
@@ -142,31 +148,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void clickDot(){
-        if (isOperation){
-            output += tempOperation + ".";
-            presentNum = ".";
-            isOperation = false;
+        if (!presentNum.contains(".")){
+            if (isOperation){
+                output += tempOperation + ".";
+                presentNum = ".";
+                isOperation = false;
+            }
+            else {
+                output += ".";
+                presentNum += ".";
+            }
+            txtScreen.setText(presentNum);
         }
-        else {
-            output += ".";
-            presentNum += ".";
-        }
-        txtScreen.setText(presentNum);
     }
 
     public void getResult(){
-        Float result = 0f;
+        Double result = 0d;
 
         output.trim();
         String[] elementMath = output.split(" ");
         if (isFirstCalculation || isEqual) {
-            result = Float.parseFloat(elementMath[0]);
+            result = Double.parseDouble(elementMath[0]);
             isFirstCalculation = false;
             isEqual = false;
         }
         else {
-            Float num1 = Float.parseFloat(elementMath[0]);
-            Float num2 = Float.parseFloat(elementMath[2]);
+            Double num1 = Double.parseDouble(elementMath[0]);
+            Double num2 = Double.parseDouble(elementMath[2]);
             switch (elementMath[1]) {
                 case "+":
                     result = num1 + num2;
@@ -184,7 +192,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         output = result.toString();
-        txtScreen.setText(result.toString());
+        if (isInteger(result)) {
+            Integer temp = result.intValue();
+            txtScreen.setText(temp.toString());
+        }
+        else
+            txtScreen.setText(result.toString());
+    }
+
+    public boolean isInteger(Double a){
+        Integer b = a.intValue();
+        if (a - b == 0)
+            return true;
+        else
+            return false;
     }
 
     public void reset(){
