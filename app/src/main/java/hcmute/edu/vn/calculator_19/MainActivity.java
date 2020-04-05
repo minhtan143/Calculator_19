@@ -151,24 +151,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void clickDot(){
-        if (!presentNum.contains(".")){
-            if (isOperation){
-                output += tempOperation + ".";
-                presentNum = ".";
-                isOperation = false;
-            }
-            else if (isEqual){
-                isFirstCalculation = true;
-                isEqual = false;
-                output = ".";
-                presentNum = ".";
-            }
-            else {
+
+        if (isOperation){
+            output += tempOperation + ".";
+            presentNum = ".";
+            isOperation = false;
+        }
+        else if (isEqual){
+            isFirstCalculation = true;
+            isEqual = false;
+            output = ".";
+            presentNum = ".";
+        }
+        else {
+            if (!presentNum.contains(".")){
                 output += ".";
                 presentNum += ".";
             }
-            txtScreen.setText(presentNum);
         }
+        txtScreen.setText(presentNum);
+
     }
 
     public void getResult(){
