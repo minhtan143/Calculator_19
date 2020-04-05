@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         isFirstCalculation = true;
         isEqual = false;
         tempOperation = "";
-        output = "";
+        output = "0";
         presentNum = "";
         txtScreen = findViewById(R.id.txtScreen);
         btn0 = findViewById(R.id.btn0);
@@ -141,10 +141,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtScreen.setText(presentNum);
     }
 
-    public void clickOperation(String a){
-        isOperation = true;
-        getResult();
+    public void clickOperation(String a) {
+
         tempOperation = " " + a + " ";
+        if (!isOperation) {
+            getResult();
+        }
+        isOperation = true;
     }
 
     public void clickDot(){
@@ -218,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         isOperation = false;
         isFirstCalculation = true;
         tempOperation = "";
-        output = "";
+        output = "0";
         presentNum = "";
         txtScreen.setText("0");
     }
