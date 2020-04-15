@@ -1,5 +1,6 @@
 package hcmute.edu.vn.calculator_19;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,56 +14,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9,
             btnAdd, btnSubtract, btnMultiply, btnDivide, btnDot, btnDelete, btnEqual;
     String output, presentNum, tempOperation;
-    Boolean isOperation, isFirstCalculation, isEqual;
+    Boolean isOperation, isNumber, isFirstCalculation, isEqual;
+    Double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        isOperation = false;
-        isFirstCalculation = true;
-        isEqual = false;
-        tempOperation = "";
-        output = "0";
-        presentNum = "";
-        txtScreen = findViewById(R.id.txtScreen);
-        btn0 = findViewById(R.id.btn0);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
-        btn5 = findViewById(R.id.btn5);
-        btn6 = findViewById(R.id.btn6);
-        btn7 = findViewById(R.id.btn7);
-        btn8 = findViewById(R.id.btn8);
-        btn9 = findViewById(R.id.btn9);
-        btnAdd = findViewById(R.id.btnAdd);
-        btnSubtract = findViewById(R.id.btnSubtract);
-        btnMultiply = findViewById(R.id.btnMultiply);
-        btnDivide = findViewById(R.id.btnDivide);
-        btnDot = findViewById(R.id.btnDot);
-        btnDelete = findViewById(R.id.btnDelete);
-        btnEqual = findViewById(R.id.btnEqual);
+        initParameter();
+        restoreStateWhenRotate(savedInstanceState);
 
-        btn0.setOnClickListener(this);
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
-        btn5.setOnClickListener(this);
-        btn6.setOnClickListener(this);
-        btn7.setOnClickListener(this);
-        btn8.setOnClickListener(this);
-        btn9.setOnClickListener(this);
-        btnAdd.setOnClickListener(this);
-        btnSubtract.setOnClickListener(this);
-        btnMultiply.setOnClickListener(this);
-        btnDivide.setOnClickListener(this);
-        btnDot.setOnClickListener(this);
-        btnDelete.setOnClickListener(this);
-        btnEqual.setOnClickListener(this);
     }
+
+
+
 
     @Override
     public void onClick(View v) {
@@ -114,8 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     clickOperation("*");
                     break;
                 case R.id.btnEqual:
-                    getResult();
-                    isEqual = true;
+                    clickEqual();
                     break;
                 case R.id.btnDelete:
                     reset();
@@ -126,6 +91,84 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             reset();
             txtScreen.setText("ERROR");
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putDouble("result",result);
+        outState.putString("output", output);
+        outState.putString("presentNum", presentNum);
+        outState.putString("tempOperation", tempOperation);
+        outState.putBoolean("isOperation", isOperation);
+        outState.putBoolean("isFirstCalculation", isFirstCalculation);
+        outState.putBoolean("isEqual", isEqual);
+        outState.putBoolean("isNumber", isNumber);
+    }
+
+    public void restoreStateWhenRotate(Bundle savedInstanceState){
+        if (savedInstanceState != null){
+            result = savedInstanceState.getDouble("result");
+            output = savedInstanceState.getString("output");
+            presentNum = savedInstanceState.getString("presentNum");
+            tempOperation = savedInstanceState.getString("tempOperation");
+            isOperation = savedInstanceState.getBoolean("isOperation");
+            isFirstCalculation = savedInstanceState.getBoolean("isFirstCalculation");
+            isEqual = savedInstanceState.getBoolean("isEqual");
+            isNumber = savedInstanceState.getBoolean("isNumber");
+
+            if (isNumber)
+                txtScreen.setText(presentNum);
+            else
+                processResult();
+        }
+    }
+
+    public void initParameter(){
+        result = 0d;
+        isOperation = false;
+        isNumber = false;
+        isFirstCalculation = true;
+        isEqual = false;
+        tempOperation = "";
+        output = "0";
+        presentNum = "";
+        txtScreen = findViewById(R.id.txtScreen);
+        btn0 = findViewById(R.id.btn0);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+        btn5 = findViewById(R.id.btn5);
+        btn6 = findViewById(R.id.btn6);
+        btn7 = findViewById(R.id.btn7);
+        btn8 = findViewById(R.id.btn8);
+        btn9 = findViewById(R.id.btn9);
+        btnAdd = findViewById(R.id.btnAdd);
+        btnSubtract = findViewById(R.id.btnSubtract);
+        btnMultiply = findViewById(R.id.btnMultiply);
+        btnDivide = findViewById(R.id.btnDivide);
+        btnDot = findViewById(R.id.btnDot);
+        btnDelete = findViewById(R.id.btnDelete);
+        btnEqual = findViewById(R.id.btnEqual);
+
+        btn0.setOnClickListener(this);
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
+        btn6.setOnClickListener(this);
+        btn7.setOnClickListener(this);
+        btn8.setOnClickListener(this);
+        btn9.setOnClickListener(this);
+        btnAdd.setOnClickListener(this);
+        btnSubtract.setOnClickListener(this);
+        btnMultiply.setOnClickListener(this);
+        btnDivide.setOnClickListener(this);
+        btnDot.setOnClickListener(this);
+        btnDelete.setOnClickListener(this);
+        btnEqual.setOnClickListener(this);
     }
 
     public void clickNumber(String a){
@@ -144,16 +187,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             presentNum += a;
         }
         isOperation = false;
+        isNumber = true;
         txtScreen.setText(presentNum);
     }
 
     public void clickOperation(String a) {
-
         tempOperation = " " + a + " ";
         if (!isOperation) {
             getResult();
         }
         isOperation = true;
+        isNumber = false;
+    }
+
+    public void clickEqual(){
+        getResult();
+        isEqual = true;
+        isNumber = false;
     }
 
     public void clickDot(){
@@ -175,11 +225,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 presentNum += ".";
             }
         }
+        isNumber = true;
         txtScreen.setText(presentNum);
     }
 
     public void getResult(){
-        Double result = 0d;
+        result = 0d;
 
         output.trim();
         String[] elementMath = output.split(" ");
@@ -207,6 +258,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        processResult();
+    }
+
+    public void processResult(){
         output = result.toString();
         if (isInteger(result)) {
             Integer temp = result.intValue();
@@ -227,9 +282,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void reset(){
         isOperation = false;
         isFirstCalculation = true;
+        isNumber = false;
         tempOperation = "";
         output = "0";
         presentNum = "";
         txtScreen.setText("0");
     }
+
+
 }
