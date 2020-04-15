@@ -66,59 +66,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn0:
-                clickNumber("0");
-                break;
-            case R.id.btn1:
-                clickNumber("1");
-                break;
-            case R.id.btn2:
-                clickNumber("2");
-                break;
-            case R.id.btn3:
-                clickNumber("3");
-                break;
-            case R.id.btn4:
-                clickNumber("4");
-                break;
-            case R.id.btn5:
-                clickNumber("5");
-                break;
-            case R.id.btn6:
-                clickNumber("6");
-                break;
-            case R.id.btn7:
-                clickNumber("7");
-                break;
-            case R.id.btn8:
-                clickNumber("8");
-                break;
-            case R.id.btn9:
-                clickNumber("9");
-                break;
-            case R.id.btnDot:
-                clickDot();
-                break;
-            case R.id.btnAdd:
-                clickOperation("+");
-                break;
-            case R.id.btnSubtract:
-                clickOperation("-");
-                break;
-            case R.id.btnDivide:
-                clickOperation("/");
-                break;
-            case R.id.btnMultiply:
-                clickOperation("*");
-                break;
-            case R.id.btnEqual:
-                getResult();
-                isEqual = true;
-                break;
-            case R.id.btnDelete:
-                reset();
-                break;
+        try {
+            switch (v.getId()){
+                case R.id.btn0:
+                    clickNumber("0");
+                    break;
+                case R.id.btn1:
+                    clickNumber("1");
+                    break;
+                case R.id.btn2:
+                    clickNumber("2");
+                    break;
+                case R.id.btn3:
+                    clickNumber("3");
+                    break;
+                case R.id.btn4:
+                    clickNumber("4");
+                    break;
+                case R.id.btn5:
+                    clickNumber("5");
+                    break;
+                case R.id.btn6:
+                    clickNumber("6");
+                    break;
+                case R.id.btn7:
+                    clickNumber("7");
+                    break;
+                case R.id.btn8:
+                    clickNumber("8");
+                    break;
+                case R.id.btn9:
+                    clickNumber("9");
+                    break;
+                case R.id.btnDot:
+                    clickDot();
+                    break;
+                case R.id.btnAdd:
+                    clickOperation("+");
+                    break;
+                case R.id.btnSubtract:
+                    clickOperation("-");
+                    break;
+                case R.id.btnDivide:
+                    clickOperation("/");
+                    break;
+                case R.id.btnMultiply:
+                    clickOperation("*");
+                    break;
+                case R.id.btnEqual:
+                    getResult();
+                    isEqual = true;
+                    break;
+                case R.id.btnDelete:
+                    reset();
+                    break;
+            }
+        }
+        catch (Exception ex) {
+            reset();
+            txtScreen.setText("ERROR");
         }
     }
 
