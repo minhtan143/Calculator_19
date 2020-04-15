@@ -176,7 +176,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         txtScreen.setText(presentNum);
-
     }
 
     public void getResult(){
